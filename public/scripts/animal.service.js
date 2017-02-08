@@ -4,7 +4,7 @@ angular.module('animalApp')
 function animalAPIService($http){
 console.log('apiservice working');
 
-this.authenticate = function(req){
+this.getAnimals = function(req){
   var req = {
     method: 'GET',
     url: 'https://animalrestapi.azurewebsites.net/Animal/List/',
@@ -13,10 +13,10 @@ this.authenticate = function(req){
 }
   console.log('authenticate working');
   console.log('req', req);
-    $http(req).then(function(response){
+    return $http(req).then(function(response){
       console.log('response', response.data.list);
 
-      return response;
+      return response.data.list;
 
 
   });

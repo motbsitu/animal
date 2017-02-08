@@ -3,16 +3,16 @@ angular.module('animalApp')
 
 function MainController(animal) {
   var main = this;
+  main.animalList = [];
+  console.log('main', main);
+  console.log('animal', animal)
   console.log('main controller working');
 
-  main.authenticate = function() {
-    console.log('authenticate in controller working');
-      animal.authenticate(main.authorize)
-              .then(function(response) {
-                console.log('something');
+  animal.getAnimals()
+    .then(function(animalList){
+      console.log('animal list', animalList);
+      main.animalList = animalList;
+    });
+    // animal.getAnimals();
 
-          });
-
-}
-main.authenticate();
 }

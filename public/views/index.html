@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Animals</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="vendor/angular.min.js"></script>
     <script src="vendor/angular-route.min.js"></script>
     <script src="scripts/app.module.js"></script>
@@ -18,16 +18,22 @@
 </head>
 
 <body>
-    <h1>Animals</h1>
+    <h1>What do we have</h1>
     <nav>
-        <!-- <a href="/home">Home</a>
-        <a href="/favoritepage">Favorites</a>
-        <a> ({{main.favoriteCount}})</a> -->
+        
     </nav>
 
     <div>
-        <ng-view>
-        </ng-view>
+      <h2>Animals</h2>
+      <div ng-repeat="animal in main.animalList">
+        <p>
+          {{animal.commonName}}
+        </p>
+        <img ng-src="{{animal.imageURL}}"/>
+
+
+      </div>
+
     </div>
 </body>
 
