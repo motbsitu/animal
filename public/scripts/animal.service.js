@@ -3,20 +3,18 @@ angular.module('animalApp')
 
 function animalAPIService($http){
 console.log('apiservice working');
+
+this.authenticate = function(req){
   var req = {
     method: 'GET',
     url: 'https://animalrestapi.azurewebsites.net/Animal/List/',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    params: {'candidateID': '68f78af7-391c-4321-82e5-31727460a2e1'}
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'}
 }
-console.log('req outside', req);
-this.authenticate = function(req){
   console.log('authenticate working');
-  console.log(req);
+  console.log('req', req);
     $http(req).then(function(response){
-      console.log('response', response);
+      console.log('response', response.data.list);
 
       return response;
 

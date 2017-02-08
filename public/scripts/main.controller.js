@@ -9,8 +9,9 @@ function MainController(animal) {
     console.log('authenticate in controller working');
       animal.authenticate(main.authorize)
               .then(function(response) {
+                console.log('something');
+
           });
-          console.log('something');
 
 }
 main.authenticate();
