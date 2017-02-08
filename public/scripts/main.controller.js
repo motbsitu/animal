@@ -3,13 +3,15 @@ angular.module('animalApp')
 
 function MainController(animal) {
   var main = this;
-  // console.log(main);
+  console.log('main controller working');
 
-  main.authenticate = function(auth) {
+  main.authenticate = function() {
+    console.log('authenticate in controller working');
       animal.authenticate(main.authorize)
               .then(function(response) {
           });
           console.log('something');
 
 }
+main.authenticate();
 }

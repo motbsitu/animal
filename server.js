@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/*', function(req, res) {
+  console.log('testing 123');
   res.sendFile(path.join(__dirname, 'public/views/index.html'));
 });
 
