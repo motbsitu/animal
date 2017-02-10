@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html ng-app="animalApp" ng-controller="MainController as main">
+<html ng-app="animalApp" >
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Animals</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="vendor/jquery-3.1.1.min.js"></script>
+
+    <link href="vendor/bootstrap.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="vendor/bootstrap.js"></script>
+
+
+
     <script src="vendor/angular.min.js"></script>
     <script src="vendor/angular-route.min.js"></script>
     <script src="scripts/app.module.js"></script>
@@ -18,11 +27,9 @@
 </head>
 
 <body>
+  <div class="container" ng-controller="MainController as main">
+    <div>
     <h1>What do we have</h1>
-    <nav>
-        
-    </nav>
-
     <div>
       <h2>Animals</h2>
       <div ng-repeat="animal in main.animalList">
@@ -31,10 +38,37 @@
         </p>
         <img ng-src="{{animal.imageURL}}"/>
 
-
+        <button ng-click="animal.getThisID(animal.id)"  type ="button" data-target="#animalDetail{{animal.id}}" data-toggle="modal" class="btn btn-info">More Information</button>
+<!-- modal -->
+        <div class="modal" id="animalDetail{{animal.id}}" tabindex="-1" role="dialog" aria-labelledby="animalDetailLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">close</button>
+              <h4 class="modal-title" id="animalDetailLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              <p>
+                TEST
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+        </div>
+<!-- end modal -->
       </div>
 
     </div>
+</div>
+
+</div>
+
 </body>
+
+
+
 
 </html>
