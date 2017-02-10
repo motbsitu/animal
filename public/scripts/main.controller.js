@@ -5,6 +5,7 @@ function MainController(animal) {
   var main = this;
   main.animalList = [];
   main.animalID = [];
+  main.newAnimal = [];
   console.log('main', main);
   console.log('animal', animal)
   console.log('main controller working');
@@ -16,14 +17,20 @@ function MainController(animal) {
     });
     animal.getAnimals();
 
-    animal.getID()
+    animal.getDetail()
     .then(function(animalID){
       console.log('animal ID', animalID);
       main.animalID = animalID;
     });
 
-    animal.getThisID = function(animalID){
+    main.getThisID = function(e){
+      e.preventDefault();
       console.log('getthisid works');
     }
+
+  animal.createAnimals = function(newAnimal){
+      console.log('new animal', newAnimal);
+      main.newAnimal = newAnimal;
+    };
 
 }

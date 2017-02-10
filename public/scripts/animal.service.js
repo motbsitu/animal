@@ -39,7 +39,7 @@ this.getAnimals = function(){
   });
 }
 
-this.getID = function(){
+this.getDetail = function(){
   var req = {
     method: 'GET',
     url: 'https://animalrestapi.azurewebsites.net/Animal/Id/1',
@@ -48,6 +48,19 @@ this.getID = function(){
 }
     return $http(req).then(function(response){
       console.log('id response', response.data.animal);
+      return response;
+  });
+};
+
+this.createAnimals = function(){
+  var req = {
+    method: 'POST',
+    url: 'https://animalrestapi.azurewebsites.net/Animal/Create',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'}
+}
+    return $http(req).then(function(response){
+      console.log('create response', response);
       return response;
   });
 };

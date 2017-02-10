@@ -32,13 +32,13 @@
     <h1>What do we have</h1>
     <div>
       <h2>Animals</h2>
-      <div ng-repeat="animal in main.animalList">
+      <div ng-repeat="animal in main.animalList" data={{animal.id}}>
         <p>
           {{animal.commonName}}
         </p>
         <img ng-src="{{animal.imageURL}}"/>
-
-        <button ng-click="animal.getThisID(animal.id)"  type ="button" data-target="#animalDetail{{animal.id}}" data-toggle="modal" class="btn btn-info">More Information</button>
+        <button ng-click="main.getThisID($event)">THIS</button>
+        <!-- <button ng-click="animal.getThisID(animal.id)" data={{animal.id}}  type ="button" data-target="#animalDetail{{animal.id}}" data-toggle="modal" class="btn btn-info">More Information</button> -->
 <!-- modal -->
         <div class="modal" id="animalDetail{{animal.id}}" tabindex="-1" role="dialog" aria-labelledby="animalDetailLabel">
         <div class="modal-dialog" role="document">
@@ -64,6 +64,17 @@
     </div>
 </div>
 
+</div>
+
+<div>
+  <form>
+    <div>
+      <label>Name</label>
+      <input ng-model="animal.commonName" />
+    </div>
+
+  </form>
+  <button ng-click="animal.createAnimals(animal.commonName)">add</button>
 </div>
 
 </body>
