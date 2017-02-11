@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="animalApp" >
+<html ng-app="animalApp">
 
 <head>
     <meta charset="utf-8">
@@ -23,59 +23,63 @@
     <script src="scripts/main.controller.js"></script>
     <script src="scripts/animal.service.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <base href="/" />  <!-- so can use location provider html5-->
+    <base href="/" />
+    <!-- so can use location provider html5-->
 </head>
 
 <body>
-  <div class="container" ng-controller="MainController as main">
-    <div>
-    <h1>What do we have</h1>
-    <div>
-      <h2>Animals</h2>
-      <div ng-repeat="animal in main.animalList" data={{animal.id}}>
-        <p>
-          {{animal.commonName}}
-        </p>
-        <img ng-src="{{animal.imageURL}}"/>
-        <button ng-click="main.getThisID($event)">THIS</button>
-        <!-- <button ng-click="animal.getThisID(animal.id)" data={{animal.id}}  type ="button" data-target="#animalDetail{{animal.id}}" data-toggle="modal" class="btn btn-info">More Information</button> -->
-<!-- modal -->
-        <div class="modal" id="animalDetail{{animal.id}}" tabindex="-1" role="dialog" aria-labelledby="animalDetailLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">close</button>
-              <h4 class="modal-title" id="animalDetailLabel">Modal title</h4>
+    <div class="container" ng-controller="MainController as main">
+      <div>
+          <h1>What do we have</h1>
+          <div>
+            <h2>Animals</h2>
+            <div ng-repeat="animal in main.animalList">
+                <p>
+                    {{animal.commonName}}
+                </p>
+                <img ng-src="{{animal.imageURL}}" />
+                <button ng-click="main.getThisID(animal.id)" type="button" data-target="#animalDetail" data-toggle="modal" class="btn btn-info">More Information</button>
+                <!-- modal -->
+                <div class="modal" id="animalDetail" tabindex="-1" role="dialog" aria-labelledby="animalDetailLabel">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="animalDetailLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Name: {{main.info.commonName}}
+                            </p>
+                            <p>
+                                Scientific Name: {{main.info.scientificName}}
+                            </p>
+                            <p>
+                                Family: {{main.info.family}}
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+                <!-- end modal -->
             </div>
-            <div class="modal-body">
-              <p>
-                TEST
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+
           </div>
-        </div>
-        </div>
-<!-- end modal -->
       </div>
 
-    </div>
-</div>
+  </div>
 
-</div>
-
-<div>
-  <form>
     <div>
-      <label>Name</label>
-      <input ng-model="animal.commonName" />
-    </div>
+        <form ng-submit="main.createAnimals()">
+            <div>
+                <label>Name</label>
+                <input ng-model="main.commonName" />
+            </div>
+            <button type="submit">add</button>
 
-  </form>
-  <button ng-click="animal.createAnimals(animal.commonName)">add</button>
-</div>
+        </form>
+    </div>
 
 </body>
 

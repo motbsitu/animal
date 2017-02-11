@@ -2,7 +2,7 @@ angular.module('animalApp')
   .service('animal', animalAPIService);
 
 function animalAPIService($http){
-console.log('apiservice working');
+// console.log('apiservice working');
 
 // var url = 'https://animalrestapi.azurewebsites.net/Animal';
 // var params = {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'};
@@ -32,23 +32,23 @@ this.getAnimals = function(){
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'}
 }
-  console.log('req', req);
+  // console.log('req', req);
     return $http(req).then(function(response){
-      console.log('getAnimals response', response.data.list);
+      // console.log('getAnimals response', response.data.list);
       return response.data.list;
   });
 }
 
-this.getDetail = function(){
+this.getDetail = function(animalID){
   var req = {
     method: 'GET',
-    url: 'https://animalrestapi.azurewebsites.net/Animal/Id/1',
+    url: 'https://animalrestapi.azurewebsites.net/Animal/Id/' + animalID,
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'}
 }
     return $http(req).then(function(response){
-      console.log('id response', response.data.animal);
-      return response;
+      // console.log('get detail response', response.data.animal);
+      return response.data.animal;
   });
 };
 
