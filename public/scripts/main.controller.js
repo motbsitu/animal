@@ -7,8 +7,7 @@ function MainController(animal) {
   main.animalID = [];
   animal.data = {};
   main.newAnimal = [];
-  // console.log('main', main);
-  // console.log('animal', animal)
+  console.log('animal', animal)
   // console.log('main controller working');
 
   animal.getAnimals()
@@ -33,20 +32,21 @@ main.getAnimalDetail = function(id){
       // animal.getDetail(e);
       main.getAnimalDetail(e);
     }
-  main.createAnimal = function(newAnimal){
+
+
+  main.createAnimal = function(name){
     console.log('createAnimals working');
-    var animalData = {
-      commonName: main.commonName
+    console.log('name', name);
+    // var animalData = {
+    //     commonName: name
+    //
+    // }
+    animal.createNewAnimal(name)
+      .then(function(response){
+        console.log('animalData', name)
 
-    }
-      console.log('new animal', animalData);
-      animal.createAnimals(animalData)
-      .then(function(newAnimal){
-        console.log('data in create animal function', newAnimal);
-        animal.data = newAnimal;
-      console.log('data create animal controller', newAnimal);
-
+        console.log('response in create animal function', response);
       });
-    };
+}
 
 }

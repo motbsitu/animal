@@ -32,9 +32,8 @@ this.getAnimals = function(){
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'}
 }
-  // console.log('req', req);
     return $http(req).then(function(response){
-      // console.log('getAnimals response', response.data.list);
+      console.log('getAnimals response', response);
       return response.data.list;
   });
 }
@@ -52,13 +51,19 @@ this.getDetail = function(animalID){
   });
 };
 
-this.createAnimals = function(animalDetail){
+this.createNewAnimal = function(name){
+  var animalDetail = {
+    list: Array
+      [commonName = name
+      ]
+    }
+
   var req = {
     method: 'POST',
     url: 'https://animalrestapi.azurewebsites.net/Animal/Create',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'},
-    data: {animalDetail}
+    data: animalDetail
 }
     return $http(req).then(function(response){
       console.log('create response', response);
