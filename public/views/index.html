@@ -71,7 +71,7 @@
   </div>
 
     <div>
-        <form ng-submit="main.createAnimals()">
+        <form ng-controller="MainController as main" ng-submit="main.createAnimal()">
             <div>
                 <label>Name</label>
                 <input ng-model="main.commonName" />

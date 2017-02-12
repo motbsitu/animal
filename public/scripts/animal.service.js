@@ -52,12 +52,13 @@ this.getDetail = function(animalID){
   });
 };
 
-this.createAnimals = function(){
+this.createAnimals = function(animalDetail){
   var req = {
     method: 'POST',
     url: 'https://animalrestapi.azurewebsites.net/Animal/Create',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'}
+    params: {candidateID: '68f78af7-391c-4321-82e5-31727460a2e1'},
+    data: {animalDetail}
 }
     return $http(req).then(function(response){
       console.log('create response', response);
