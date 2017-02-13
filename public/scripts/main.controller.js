@@ -32,7 +32,6 @@ main.getAllAnimals();
   });
 };
 
-
   main.createAnimal = function(name, scientificName, family, imageUrl){
     return animal.createNewAnimal(name, scientificName, family, imageUrl)
       .then(function(response){
