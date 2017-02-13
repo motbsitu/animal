@@ -18,7 +18,6 @@
     <script src="vendor/angular.min.js"></script>
     <script src="vendor/angular-route.min.js"></script>
     <script src="scripts/app.module.js"></script>
-    <script src="scripts/app.config.js"></script>
 
     <script src="scripts/main.controller.js"></script>
     <script src="scripts/animal.service.js"></script>
@@ -29,86 +28,74 @@
 
 <body>
     <div class="container" ng-controller="MainController as main">
-      <div>
-          <h1>What do we have</h1>
-          <div>
-            <h2>Animals</h2>
-            <div class="flex-container">
-              <div class="flex-item">
-                <div ng-repeat="animal in main.animalList">
-                  <p>
-                    {{animal.commonName}}
-                  </p>
-                <img ng-src="{{animal.imageURL}}" />
-                <button ng-click="main.getThisID(animal.id)" type="button" data-target="#animalDetail" data-toggle="modal" class="btn btn-info">More Information</button>
-                <button ng-click="main.deleteAnimal(animal.id)" type="button">Delete</button>
-              </div>
-            </div>
-          </div>
+        <div>
+            <h1>Animals and Pokemon</h1>
+            <div>
+                <h3>Collect your Favorite Animals and Pokemon</h3>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-3" ng-repeat="animal in main.animalList | orderBy: 'commonName'">
+                            <h2>{{animal.commonName}}</h2>
+                            <img ng-src="{{animal.imageURL}}" />
+                            <button ng-click="main.getThisID(animal.id)" type="button" data-target="#animalDetail" data-toggle="modal" class="btn btn-info">More Information</button>
+                            <button ng-click="main.deleteAnimal(animal.id)" type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+
                 <!-- modal -->
 
                 <div class="modal" id="animalDetail" tabindex="-1" role="dialog" aria-labelledby="animalDetailLabel">
-                  <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="animalDetailLabel">Modal title</h4>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="animalDetailLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Name: {{main.info.commonName}}</p>
+                                <p>Scientific Name: {{main.info.scientificName}}</p>
+                                <p>Family: {{main.info.family}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <p>Name: {{main.info.commonName}}
-                            </p>
-                            <p>
-                                Scientific Name: {{main.info.scientificName}}
-                            </p>
-                            <p>
-                                Family: {{main.info.family}}
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                  </div>
-              </div>
+                    </div>
+                </div>
                 <!-- end modal -->
             </div>
 
-          </div>
-      </div>
+        </div>
 
-  </div>
-
-    <div>
-        <form ng-controller="MainController as main" ng-submit="main.createAnimal(main.commonName, main.scientificName, main.family, main.imageUrl)" class="form-horizontal col-xs-12 col-md-12 well">
-          <h3>Add New Animal</h3>
+    <div class="form-container">
+        <form ng-controller="MainController as main" ng-submit="main.createAnimal(main.commonName, main.scientificName, main.family, main.imageUrl)" class="form-horizontal well">
+            <h3>Add New Animal</h3>
             <div class="form-group row">
                 <label class="control-label col-xs-offset-1 col-xs-2">Name</label>
                 <div class="col-xs-7">
-                  <input class="form-control" type="text" ng-model="main.commonName" />
+                    <input class="form-control" type="text" ng-model="main.commonName" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-xs-offset-1 col-xs-2">Scientific Name</label>
                 <div class="col-xs-7">
-                  <input class="form-control" type="text" ng-model="main.scientificName" />
+                    <input class="form-control" type="text" ng-model="main.scientificName" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-xs-offset-1 col-xs-2">Family</label>
                 <div class="col-xs-7">
-                  <input class="form-control" type="text" ng-model="main.family" />
+                    <input class="form-control" type="text" ng-model="main.family" />
                 </div>
             </div>
             <div class="form-group row">
                 <label class="control-label col-xs-offset-1 col-xs-2">Image URL</label>
                 <div class="col-xs-7">
-                  <input class="form-control" type="url" ng-model="main.imageUrl" http-prefix/>
+                    <input class="form-control" type="url" ng-model="main.imageUrl" />
                 </div>
             </div>
-            <button class="btn btn-default pull-right" type="submit">add</button>
-
+            <button class="btn btn-primary " type="submit">Add</button>
         </form>
     </div>
-
+  </div>
 </body>
 
 

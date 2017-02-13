@@ -57,10 +57,11 @@ this.createNewAnimal = function(name, scientificName, family, imageUrl){
 this.deleteThisAnimal = function(id){
 
   var req = {
-    method: 'DELETE',
+    method: 'POST',
     url: url + '/Delete/' + id,
     headers: head,
-    params: params
+    params: params,
+    data: id
 
 }
     return $http(req).then(function(response){
