@@ -19,6 +19,10 @@ main.getAllAnimals = function(){
 };
 main.getAllAnimals();
 
+  main.getThisID = function(thisId){
+    main.getAnimalDetail(thisId);
+  };
+
   main.getAnimalDetail = function(id){
     return animal.getDetail(id)
     .then(function(animalInfo){
@@ -28,33 +32,30 @@ main.getAllAnimals();
   });
 };
 
-  main.getThisID = function(thisId){
-    main.getAnimalDetail(thisId);
-  };
-
 
   main.createAnimal = function(name, scientificName, family, imageUrl){
     return animal.createNewAnimal(name, scientificName, family, imageUrl)
       .then(function(response){
+        main.getAllAnimals();
+
         //clear form
         main.commonName = '';
         main.scientificName = '';
         main.family = '';
         main.imageUrl = '';
 
-        main.animalList =
-
-        main.getAllAnimals();
       }, function(error){
         console.log('error creating animal', error);
       });
   };
 
+  main.getDeleteID = function(deleteId){
+    idToDelete = deleteId
+  };
 
 
-
-  main.deleteAnimal = function(id){
-    return animal.deleteThisAnimal(id)
+  main.deleteAnimal = function(){
+    return animal.deleteThisAnimal(idToDelete)
       .then(function(animalDelete){
         main.getAllAnimals();
       }, function(error){

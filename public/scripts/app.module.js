@@ -1,1 +1,1 @@
-angular.module('animalApp', ['ngRoute']);
+angular.module('animalApp', []);

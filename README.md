@@ -3,7 +3,7 @@ Web application to view, save, and delete your favorite animals and Pokemon.
 
 ##Installation
 From terminal:
-- npm init
+- npm install
 - npm start
 
 ##Technology used
@@ -13,7 +13,7 @@ From terminal:
 - Bootstrap
 
 ##Author
-- Julie S. Mike, jule@juliesmike.com
+- Julie S. Mike, julie@juliesmike.com
 
 
 #Provided Documentation

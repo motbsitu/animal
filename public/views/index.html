@@ -13,8 +13,6 @@
 
     <script src="vendor/bootstrap.js"></script>
 
-
-
     <script src="vendor/angular.min.js"></script>
     <script src="vendor/angular-route.min.js"></script>
     <script src="scripts/app.module.js"></script>
@@ -22,8 +20,7 @@
     <script src="scripts/main.controller.js"></script>
     <script src="scripts/animal.service.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <base href="/" />
-    <!-- so can use location provider html5-->
+
 </head>
 
 <body>
@@ -32,16 +29,16 @@
             <h1>Animals and Pokemon</h1>
             <div>
                 <h3>Collect your Favorite Animals and Pokemon</h3>
+                <h4>Click on the image for more information</h4>
                     <div class="row">
                         <div class="col-xs-6 col-sm-3" ng-repeat="animal in main.animalList | orderBy: 'commonName'">
                             <h2>{{animal.commonName}}</h2>
-                            <img ng-src="{{animal.imageURL}}" />
-                            <button ng-click="main.getThisID(animal.id)" type="button" data-target="#animalDetail" data-toggle="modal" class="btn btn-info">More Information</button>
-                            <button ng-click="main.deleteAnimal(animal.id)" type="button" class="btn btn-danger">Delete</button>
+                            <img ng-click="main.getThisID(animal.id)" type="button" data-target="#animalDetail" data-toggle="modal" ng-src="{{animal.imageURL}}" />
+                            <button ng-click="main.getDeleteID(animal.id)" type="button" data-target="#animalDelete" data-toggle="modal" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
 
-                <!-- modal -->
+                <!-- animal detail modal -->
 
                 <div class="modal" id="animalDetail" tabindex="-1" role="dialog" aria-labelledby="animalDetailLabel">
                     <div class="modal-dialog" role="document">
@@ -61,6 +58,22 @@
                     </div>
                 </div>
                 <!-- end modal -->
+
+                <div class="modal fade" id="animalDelete" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="modal-body">
+                        <p>Are you sure you want to delete this animal?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="main.deleteAnimal()" >Yes</button>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
             </div>
 
         </div>
@@ -71,7 +84,7 @@
             <div class="form-group row">
                 <label class="control-label col-xs-offset-1 col-xs-2">Name</label>
                 <div class="col-xs-7">
-                    <input class="form-control" type="text" ng-model="main.commonName" />
+                    <input class="form-control" type="text" ng-model="main.commonName" required/>
                 </div>
             </div>
             <div class="form-group row">
