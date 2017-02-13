@@ -29,16 +29,26 @@ function MainController(animal) {
     animal.createNewAnimal(name, scientificName, family, imageUrl)
       .then(function(){
         animal.getAnimals();
-        name = '';
+        main.commonName = '';
 
       }, function(error){
         console.log('error creating animal', error);
       });
   }
 
+
+
+
+main.deleteAnimal = function(id){
+  animal.deleteThisAnimal(id)
+    .then(function(animalDelete){
+
+    }, function(error){
+      console.log('error deleting animal', error);
+
+    });
 }
-
-
+}
 //directive to convert url to correct format
 // angular.module('animalApp')
 //     .directive('httpPrefix', function() {

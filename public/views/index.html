@@ -41,6 +41,7 @@
                   </p>
                 <img ng-src="{{animal.imageURL}}" />
                 <button ng-click="main.getThisID(animal.id)" type="button" data-target="#animalDetail" data-toggle="modal" class="btn btn-info">More Information</button>
+                <button ng-click="main.deleteAnimal(animal.id)" type="button">Delete</button>
               </div>
             </div>
           </div>
@@ -77,7 +78,7 @@
   </div>
 
     <div>
-        <form ng-controller="MainController as main" ng-submit="main.createAnimal(main.commonName, main.scientificName, main.family, main.imageUrl)" class="form-horizontal col-xs-12 col-md-12  well">
+        <form ng-controller="MainController as main" ng-submit="main.createAnimal(main.commonName, main.scientificName, main.family, main.imageUrl)" class="form-horizontal col-xs-12 col-md-12 well">
           <h3>Add New Animal</h3>
             <div class="form-group row">
                 <label class="control-label col-xs-offset-1 col-xs-2">Name</label>

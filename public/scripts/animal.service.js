@@ -53,4 +53,18 @@ this.createNewAnimal = function(name, scientificName, family, imageUrl){
       return response;
   });
 };
+
+this.deleteThisAnimal = function(id){
+
+  var req = {
+    method: 'DELETE',
+    url: url + '/Delete/' + id,
+    headers: head,
+    params: params
+
+}
+    return $http(req).then(function(response){
+      return response;
+  });
+};
 };
