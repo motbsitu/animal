@@ -17,7 +17,6 @@ var req = {
 }
     return $http(req)
       .then(function(response){
-      console.log('getAnimals response', response);
       return response.data.list;
   });
 }

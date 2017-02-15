@@ -12,7 +12,6 @@ main.getAllAnimals = function(){
   return animal.getAnimals()
     .then(function(animalList){
       main.animalList = animalList;
-      console.log('animal list', main.animalList);
     }, function(error){
       console.log('error getting animal list', error);
     });
@@ -35,6 +34,7 @@ main.getAllAnimals();
   main.createAnimal = function(name, scientificName, family, imageUrl){
     return animal.createNewAnimal(name, scientificName, family, imageUrl)
       .then(function(response){
+        main.animalList = [];
         main.getAllAnimals();
 
         //clear form
