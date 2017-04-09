@@ -1,13 +1,14 @@
 body{
-  background-color: white;
+  background-color: #f9f9f9;
   font-family: 'Lato', sans-serif;
-  color: #FFF;
-
   -webkit-font-smoothing: antialiased;
 }
 
 .navbar{
   margin: 0;
+}
+.head-main{
+  color: black;
 }
 .animal-image{
   height: 200px;
@@ -21,12 +22,9 @@ body{
 .animal-image:hover{
   filter: brightness(75%);
 }
-
-h1, h2, h3{
-  text-align: center;
+h2{
+  color: black;
 }
-
-
 button{
   clear:both;
   margin: 3px;
@@ -37,10 +35,12 @@ button{
   clear: both;
   color: black;
   text-align: center;
+
 }
 .form-horizontal{
   display:inline-block;
   width: 1000px;
+  background-color: white;
 }
 
 
@@ -65,6 +65,7 @@ button{
 }
 .other-text{
   padding: 100px;
+  color: white;
 
 }
 
@@ -118,8 +119,71 @@ button{
   left: initial;
   font-size: 14px;
 }
+
+.container {
+  display:flex;
+  /*justify-content: center;*/
+  -webkit-flex-wrap: wrap;
+  list-style: none;
+  flex-wrap: wrap;
+  /*width: 100%;*/
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.box {
+  /*display: flex;*/
+  flex-direction: row;
+  width: 450px;
+  height: auto;
+  margin: 50px;
+  text-align: center;
+  color: black;
+  background-color: white;
+  padding: 20px;
+  position: relative;
+  flex: 1;
+
+}
+.box-image {
+  width: 400px;
+height: auto;
+
+}
+.box-image img{
+  width: 100%;
+
+
+}
+.box p{
+  font-size: 15px;
+  text-align: left;
+  text-shadow: none;
+}
+
+
+.container .button-hld{
+  justify-content: center;
+  display: flex;
+
+}
+button{
+  font-size: 20px;
+
+}
+button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
 footer{
     background: #322f30;
+    color: white;
 }
 .logo-image{
   height: 75px;

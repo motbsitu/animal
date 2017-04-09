@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -36,7 +36,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Animals and Pokemon</a>
+      <a class="navbar-brand" href="#">Super Fun Site</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -47,11 +47,7 @@
             		<input type="text" class="form-control" name="search" id="search" placeholder="">
               		<span class="glyphicon glyphicon-search form-control-feedback"></span>
             	</div>
-        <!-- <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button> -->
-      </form>
+    </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
@@ -76,16 +72,14 @@
     </div>
   </div>
   </div>
-
+  
   <div class="container" ng-controller="MainController as main">
-      <h4>Click on the image for more information</h4>
-        <div class="row">
-            <div class="col-xs-6 col-sm-3" ng-repeat="animal in main.animalList | orderBy: 'commonName'">
+
+            <div class="box" ng-repeat="animal in main.animalList | orderBy: 'commonName'">
               <h2>{{animal.commonName}}</h2>
               <img class="animal-image" ng-click="main.getThisID(animal.id)" type="button" data-target="#animalDetail" data-toggle="modal" ng-src="{{animal.imageURL}}" />
               <button ng-click="main.getDeleteID(animal.id)" type="button" data-target="#animalDelete" data-toggle="modal" class="btn btn-danger">Delete</button>
             </div>
-        </div>
 
         <!-- animal detail modal -->
         <div class="modal" id="animalDetail" tabindex="-1" role="dialog" aria-labelledby="animalDetailLabel">
@@ -106,6 +100,7 @@
             </div>
         </div>
         <!-- end modal -->
+      </div>
 
         <div class="modal fade" id="animalDelete" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -122,7 +117,6 @@
             </div>
           </div>
         </div>
-    </div>
 
 
 
@@ -155,6 +149,29 @@
             </div>
             <button class="btn btn-primary btn-lg" type="submit">Add</button>
         </form>
+    </div>
+    <div class="container">
+      <div class="box box1">
+        <h1>Other Thing We Do</h1>
+        <div class="box-image">
+          <img src="images/trees.jpg" />
+        </div>
+        <p>Quisque varius sodales congue. In pharetra risus magna, in vehicula metus interdum luctus. Curabitur accumsan odio sem. Mauris varius ut dui ut fringilla. Donec iaculis mattis massa id efficitur. Donec sed sem in ante vestibulum semper nec id velit.</p>
+        <div class="button-hld">
+          <button>View Other Thing</button>
+        </div>
+
+      </div>
+      <div class="box box2">
+        <h1>Something Else</h1>
+        <div class="box-image">
+          <img src="images/bamboo.jpg" />
+        </div>
+        <p>Nulla eros orci, egestas quis hendrerit at, laoreet eget sem. Maecenas nec ipsum egestas, rutrum nulla id, vulputate lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed ac mattis sapien. Nulla semper eros at mattis iaculis.  </p>
+        <div class="button-hld">
+          <button>View Something Else</button>
+        </div>
+      </div>
     </div>
 
     <footer class="page-footer">
