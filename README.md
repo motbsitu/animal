@@ -5,12 +5,14 @@ Web application to view, save, and delete your favorite animals and Pokemon.
 From terminal:
 - npm install
 - npm start
+- http://localhost:3000/
 
 ## Technology used
 - AngularJS
 - Node
 - Express
 - Bootstrap
+- Flexbox
 
 ## Author
 - Julie S. Mike, julie@juliesmike.com
